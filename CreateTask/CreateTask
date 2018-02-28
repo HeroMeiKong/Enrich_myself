@@ -1,0 +1,14 @@
+if [ -d $1 ]; then
+  echo 'error: dirName exists'
+  exit
+else
+  mkdir $1
+  cd $1
+  mkdir test homework JavaScript
+  touch index.html
+  cd JavaScript
+  mkdir images scripts styles
+  touch index.html scripts/main.js styles/layout.css
+  echo 'success'
+  exit
+fi

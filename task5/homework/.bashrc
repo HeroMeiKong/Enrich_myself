@@ -1,0 +1,1 @@
+export PATH="/d/JavaScriptworks/jirengu/task5/homework:$PATH"
