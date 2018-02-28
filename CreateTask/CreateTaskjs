@@ -1,8 +1,9 @@
-#!#!/usr/bin/env node
+#!/usr/bin/env node
 var fs = require('fs')
 
 var dirName = process.argv[2]
 process.chdir("/JavaScriptworks/jirengu")
+if(!fs.existsSync(dirName)){
   fs.mkdirSync(dirName)
   process.chdir(dirName)
   fs.mkdirSync('test')
@@ -17,4 +18,8 @@ process.chdir("/JavaScriptworks/jirengu")
   fs.writeFileSync("scripts/main.js","")
   fs.writeFileSync("styles/layout.css","")
   console.log('success')
+}
+else{
+  console.log('error: dirName exists')
+}
 process.exit(0)
