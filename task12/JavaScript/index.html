@@ -84,21 +84,21 @@
         <li>
           <h3>HTML 5 &amp; CSS 3</h3>
           <div class="progressBar">
-            <div class="progress">
+            <div class="progress" style="width: 80%;">
             </div>
           </div>
         </li>
         <li>
           <h3>JavaScript</h3>
           <div class="progressBar">
-            <div class="progress">
+            <div class="progress" style="width: 80%;">
             </div>
           </div>
         </li>
         <li>
           <h3>jQuery</h3>
           <div class="progressBar">
-            <div class="progress">
+            <div class="progress" style="width: 50%;">
             </div>
           </div>
         </li>
@@ -119,26 +119,45 @@
         <li>
           <h3>HTTP</h3>
           <div class="progressBar">
-            <div class="progress">
+            <div class="progress" style="width: 60%;">
             </div>
           </div>
         </li>
       </ol>
     </section>
-    <section>
+    <section class="portfolio">
       <h2>作品集</h2>
       <nav>
-        <ol>
-          <li>所有</li>
-          <li>框架</li>
-          <li>原生JS&amp;CSS</li>
+        <ol class="clearfix">
+          <li id="portfolio1">所有</li>
+          <li id="portfolio2">框架</li>
+          <li id="portfolio3">原生JS&amp;CSS</li>
         </ol>
+        <div id="portfolioBar" class="selectBar state1">
+          <div class="selectBar-inner"></div>
+        </div>
       </nav>
-
-      <div class="jobs">
-        <div class="big"></div>
-        <div class="small"></div>
-        <div class="small"></div>
+      <script>
+        portfolio1.onclick = function(){
+          portfolioBar.className = 'selectBar state1'
+        }
+        portfolio2.onclick = function(){
+          portfolioBar.className = 'selectBar state2'
+        }
+        portfolio3.onclick = function(){
+          portfolioBar.className = 'selectBar state3'
+        }
+      </script>
+      <div class="works">
+        <div class="big" style="top: 0;left: 7px;">
+          <img src="./images/works1.jpg" alt="Work1">
+        </div>
+        <div class="small" style="top: 0;left: 638px;">
+            <img src="./images/works2.jpg" alt="Work2">
+        </div>
+        <div class="small" style="top: 298px;left: 638px;">
+            <img src="./images/works3.jpg" alt="Work3">
+        </div>
       </div>
 
     </section>

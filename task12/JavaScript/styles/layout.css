@@ -201,13 +201,15 @@ body > main .downloadResume-wrappar {
   text-align: center;
   font-family: Open Sans;
 }
-section.skills {
+section.skills,
+section.portfolio {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
 }
-section.skills > h2 {
+section.skills > h2,
+section.portfolio > h2 {
   text-align: center;
   color: #3D4451;
   font-size: 34px;
@@ -239,4 +241,59 @@ section.skills .progressBar > .progress {
   background: #E6686A;
   width: 70%;
   border-radius: 2px;
+}
+section.portfolio {
+  text-align: center;
+}
+section.portfolio > nav {
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 32px;
+  margin-bottom: 28px;
+}
+section.portfolio > nav > ol {
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: top;
+}
+section.portfolio > nav > ol > li{
+  float: left;
+  margin-left: 40px;
+  cursor: pointer;
+}
+section.portfolio > nav > ol > li:first-child{
+  margin-left: 0px;
+}
+section.portfolio > nav .selectBar {
+  height: 5px;
+  background: white;
+  margin-top: 5px;
+  border-radius: 2px;
+}
+section.portfolio > nav .selectBar-inner {
+  height: 100%;
+  background: #E6686A;
+  width: 10%;
+  border-radius: 2px;
+  transition: all 0.4s;
+}
+section.portfolio > nav .selectBar.state1 .selectBar-inner  {
+  margin-left: 0;
+  width: 35px;
+}
+section.portfolio > nav .selectBar.state2 .selectBar-inner  {
+  margin-left: 65px;
+  width: 45px;
+}
+section.portfolio > nav .selectBar.state3 .selectBar-inner  {
+  margin-left: 140px;
+  width: 96px;
+}
+section.portfolio .works {
+  position: relative;
+  height: 569px;
+}
+section.portfolio .works > div{
+  position: absolute;
 }
