@@ -7,7 +7,7 @@
   border-right: 200px solid #FFFFFF;
   box-shadow: 0 0 30px rgba(0, 0, 0, 5);
   border-radius: 400px;
-  -webkit-animation: rotation 2.5s linear infinite;
+  animation: rotation 2.5s linear infinite;
 }
 .taiji:before,
 .taiji:after {
@@ -35,7 +35,7 @@
   border-radius: 50%;
   box-shadow: 0 200px 0 #FFFFFF;
 }
-@-webkit-keyframes rotation {
+@keyframes rotation {
   0% {-webkit-transform: rotate(0deg);}
   100% {-webkit-transform: rotate(-360deg);}
 }
