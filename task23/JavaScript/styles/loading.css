@@ -1,0 +1,31 @@
+.loading{
+  width: 200px;
+  height: 200px;
+  border: 1px red solid;
+  position: relative;
+}
+.loading::before,.loading::after{
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  background: #696969;
+  border-radius: 50%;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  animation: loading-animation 1s linear infinite;
+}
+.loading::after{
+  animation-delay: 0.75s;
+}
+@keyframes loading-animation{
+  0%{
+    width: 0px;height: 0x;opacity: 1;
+  }
+  100%{
+    width: 100px;height: 100x;opacity: 0;
+  }
+}
