@@ -206,7 +206,7 @@
           x.preventDefault();
           let a = x.currentTarget;
           let href = a.getAttribute('href');
-          let element = document.querySelectorAll(href)[0];
+          let element = document.querySelector(href);
           let top = element.offsetTop;
           window.scrollTo(0, top-80);
         }
