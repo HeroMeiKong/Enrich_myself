@@ -36,7 +36,7 @@ window.jquery = function(nodeOrSelector){
 	}*/
 	nodes.text = function(text){
 		if(text === undefined){
-			var texts =let;
+			var texts = [];
 			for (let i = nodes.length - 1; i >= 0; i--) {
 				texts.push(nodes[i].textContent);
 			}
