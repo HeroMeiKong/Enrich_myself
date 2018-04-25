@@ -14,10 +14,10 @@ function getImage(n){
 }
 
 function x(n){
-	if(n > 3){
-		n = n%3
+	if(n > 6){
+		n = n%6
 		if(n===0){
-			n =3;
+			n =6;
 		}
 	}
 	return n;
