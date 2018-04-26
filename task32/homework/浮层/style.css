@@ -1,0 +1,17 @@
+.father{
+	background-color: yellow;
+	position: relative;
+	display: inline-block;
+	border: 1px solid black;
+}
+.popover{
+	background-color: red;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	padding: 10px;
+	margin-left: 10px;
+	white-space: nowrap;
+	display: none;
+	border: 1px solid black;
+}

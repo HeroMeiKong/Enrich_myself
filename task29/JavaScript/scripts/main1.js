@@ -4,7 +4,7 @@ for (let i = allButtons.length - 1; i >= 0; i--) {
 		var index = $(x.currentTarget).index();
 		var p = index * -200;
 		$('#images').css({
-			transform: 'translate('+ p + 'px)'
+			transform: 'translateX('+ p + 'px)'
 		})
 		n = index;
 		activeButton(allButtons.eq(n));
