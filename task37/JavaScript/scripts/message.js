@@ -1,9 +1,8 @@
-!function(){
+!function (){
   var model = {
-    // 获取数据
-    init: function(){
-      var APP_ID = 'TsDnap9SEXjSvGSowP7gXXJC-gzGzoHsz'
-      var APP_KEY = 'rGye31p12mM3wFpNRn9RADu9'
+    init: function (){
+      var APP_ID = 'RXUUPp68EacDal2omal4h3lP-gzGzoHsz';
+      var APP_KEY = '7JIhb6w2sDIausaNyaf4NqsH';
       AV.init({ appId: APP_ID, appKey: APP_KEY })
     },
     fetch: function(){ 
@@ -20,7 +19,6 @@
       })
     }
   }
-
   var view = document.querySelector('section.message')
 
 
@@ -57,7 +55,7 @@
       })
     },
     saveMessage: function(){
-      /*let myForm = this.form
+      let myForm = this.form
       let content = myForm.querySelector('input[name=content]').value
       let name = myForm.querySelector('input[name=name]').value
       this.model.save(name, content).then(function(object) {
@@ -67,7 +65,7 @@
         messageList.appendChild(li)
         myForm.querySelector('input[name=content]').value = ''
         console.log(object)
-      })*/
+      })
     }
 
   }
@@ -76,4 +74,3 @@
 
 
 }.call()
-
