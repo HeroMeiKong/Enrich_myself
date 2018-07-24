@@ -19,7 +19,7 @@
   overflow: hidden;
 }
 #paper{
-  background: #dfb1b1; padding: 16px;
+  background: #c79f9f; padding: 16px;
   position: fixed; width: 50%; height: 100%; right: 0;
   display: flex; align-items: flex-start;
 }
