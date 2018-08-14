@@ -24,28 +24,7 @@ function uploadWithOthers(token, putExtra, config, domain) {
           console.log("upload init");
         },
         FilesAdded: function(up, files) {
-          resume = false;
-          $("#box input").attr("disabled", "disabled");
-          $("#box button").css("backgroundColor", "#aaaaaa");
-          chunk_size = uploader.getOption("chunk_size");
-          var id = files[0].id;
-          // 添加上传dom面板
-          board[id] = addUploadBoard(files[0], config, files[0].name, "2");
-          board[id].start = true;
-          // 绑定上传按钮开始事件
-          $(board[id])
-            .find(".control-upload")
-            .on("click", function() {
-              if (board[id].start) {
-                uploader.start();
-                board[id].start = false;
-                $(this).text("取消上传");
-              } else {
-                uploader.stop();
-                board[id].start = true;
-                $(this).text("开始上传");
-              }
-            });
+          
         },
         FileUploaded: function(up, file, info) {
           console.log(info);
