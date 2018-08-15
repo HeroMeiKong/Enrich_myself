@@ -22,18 +22,18 @@ var server = http.createServer(function (request, response) {
 
   /******** 从这里开始看，上面不要看 ************/
 
-  console.log('方方说：含查询字符串的路径\n' + pathWithQuery)
+  console.log('查询字符串的路径\n' + pathWithQuery)
 
 
   if (path === '/uptoken') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/json;charset=utf-8')
     response.setHeader('Access-Control-Allow-Origin', '*')
-
+    response.removeHeader('Data')
 
     var config = fs.readFileSync('./qiniu-config.json')
     config = JSON.parse(config)
-    var {accessKey,secretKey} = json
+    var {accessKey,secretKey} = config
     var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
     var options = {
       scope: 'netease-cloud-music',
