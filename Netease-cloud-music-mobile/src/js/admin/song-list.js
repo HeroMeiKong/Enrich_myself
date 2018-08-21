@@ -8,9 +8,9 @@
     render(data){
       let $el = $(this.el)
       $el.html(this.template)
-      let {song, selectedSongId} = data
+      let {songs, selectedSongId} = data
       let liList = songs.map((song) =>{
-        let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
+        let $li = $('<li></li>').text(song.name).attr('data-song-id', song.id)
         if(song.id === selectedSongId){ $li.addClass('active')}
         return $li
       })
@@ -26,7 +26,7 @@
   let model = {
     data: {
       songs: [],
-      selectedSongId: undefined
+      selectSongId: undefined
     },
     find(){
       var query = new AV.Query('Song')
@@ -34,7 +34,7 @@
         this.data.songs = songs.map((song) => {
           return {id: song.id, ...song.attributes}
         })
-        return sosngs
+        return songs
       })
     }
   }
@@ -59,8 +59,8 @@
         this,view.render(this.model.data)
         let data
         let songs = this.model.data.songs
-        for(let i=0;i<songs.length; i++){
-          if(songs[i].id ===songId){
+        for(let i=0; i<songs.length; i++){
+          if(songs[i].id === songId){
             data = songs[i]
             break
           }
@@ -71,14 +71,14 @@
     bindEventHub(){
       window.eventHub.on('create', (songData) => {
         this.model.data.songs.push(songData)
-        this.view.render(this,model.data)
+        this.view.render(this.model.data)
       })
       window.eventHub.on('new', () => {
         this,view,clearActive()
       })
       window.eventHub.on('update', (song) => {
         let songs = this.model.data.songs
-        for(let i=0;i< songs.length;i++){
+        for(let i=0; i<songs.length; i++){
           if(songs[i].id === song.id){
             Object.assign(songs[i],song)
           }

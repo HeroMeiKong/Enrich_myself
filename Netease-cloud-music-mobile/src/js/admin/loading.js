@@ -10,11 +10,11 @@
   }
   let controller={
     init(view){
-      this.view =view
+      this.view = view
       this.bindEventHub()
     },
     bindEventHub(){
-      window.eventHub.on('click',()=>{
+      window.eventHub.on('beforeUpload',()=>{
         this.view.show()
       })
       window.eventHub.on('afterUpload',()=>{

@@ -14,7 +14,7 @@ window.eventHub = {
   },
   on(eventName,fn){//订阅
     if(this.events[eventName] === undefined){
-      this.enents[eventName] = []
+      this.events[eventName] = []
     }
     this.events[eventName].push(fn)
   }

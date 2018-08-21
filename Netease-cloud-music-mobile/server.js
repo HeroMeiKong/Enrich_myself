@@ -43,7 +43,6 @@ var server = http.createServer(function (request, response) {
     response.write(`
     {
       "uptoken": "${uploadToken}"
-      }
     }
     `)
     response.end()

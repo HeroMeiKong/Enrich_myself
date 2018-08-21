@@ -1,6 +1,6 @@
 {
   let view = {
-    el: '.page >main',
+    el: '.page > main',
     init() {
       this.$el = $(this.el)
     },
@@ -75,7 +75,7 @@
       song.set('url', data.url)
       song.set('cover', data.cover)
       return song.save().then((response) => {
-        Object.assign(thsi.data, data)
+        Object.assign(this.data, data)
         return response
       })
     },
@@ -109,7 +109,7 @@
       window.eventHub.on('new',(data)=>{
         if(this.model.data.id){
           this.model.data = {
-            name: '',url: '',id: '',siger: '',lyrics: ''
+            name: '',url: '',id: '',singer: '',lyrics: ''
           }
         }else{
           Object.assign(this.model.data,data)
@@ -118,7 +118,7 @@
       })
     },
     create(){
-      let needs = 'name siger url cover lyrics'.split(' ')
+      let needs = 'name singer url cover lyrics'.split(' ')
       let data = {}
       needs.map((string)=>{
         data[string] = this.view.$el.find(`[name="${string}"]`).val()
@@ -139,7 +139,7 @@
       })
     },
     bindEvents(){
-      this.view.$el.on('submit','from',(e)=>{
+      this.view.$el.on('submit','form',(e)=>{
         e.preventDefault()
         if(this.model.data.id){
           this.update()
@@ -149,5 +149,5 @@
       })
     }
   }
-  controller.init(model, view)
+  controller.init(view, model)
 }
