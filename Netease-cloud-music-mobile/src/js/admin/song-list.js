@@ -56,7 +56,7 @@
       $(this.view.el).on('click','li', (e) => {
         let songId = e.currentTarget.getAttribute('data-song-id')
         this.model.data.selectedSongId = songId
-        this,view.render(this.model.data)
+        this.view.render(this.model.data)
         let data
         let songs = this.model.data.songs
         for(let i=0; i<songs.length; i++){
@@ -74,7 +74,7 @@
         this.view.render(this.model.data)
       })
       window.eventHub.on('new', () => {
-        this,view,clearActive()
+        this.view.clearActive()
       })
       window.eventHub.on('update', (song) => {
         let songs = this.model.data.songs

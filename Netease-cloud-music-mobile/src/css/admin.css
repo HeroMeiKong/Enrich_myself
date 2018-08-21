@@ -69,6 +69,7 @@ body{
 .songList > li{
   border-bottom: 1px solid #ddd; 
   padding: 10px; 
+  cursor: pointer;
 }
 .songList > li.active{
   background: #EF1873;

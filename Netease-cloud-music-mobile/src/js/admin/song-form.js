@@ -69,6 +69,7 @@
     },
     update(data) {
       var song = AV.Object.createWithoutData('Song', this.data.id)
+      console.log(this.data.id)
       song.set('name', data.name)
       song.set('singer', data.singer)
       song.set('lyrics', data.lyrics)
