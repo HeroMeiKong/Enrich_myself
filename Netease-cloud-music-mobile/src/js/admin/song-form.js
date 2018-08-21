@@ -1,6 +1,6 @@
 {
   let view = {
-    el: '.page > main',
+    el: '.page > .page-container > main',
     init() {
       this.$el = $(this.el)
     },
@@ -34,7 +34,7 @@
           <label>
           歌词
           </label>
-          <textarea cols=100 rows=10 name="lyrics">__lyrics__</textarea>
+          <textarea cols=80 rows=10 name="lyrics">__lyrics__</textarea>
         </div>
         <div class="row actions">
           <button type="submit">保存</button>

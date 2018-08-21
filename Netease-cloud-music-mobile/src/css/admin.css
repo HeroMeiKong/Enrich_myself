@@ -8,26 +8,47 @@ input{font: inherit;}
 
 body{
   font-size: 12px;
-  line-height: 1.5;
+	line-height: 1.5;
+	background-color: #F8EBEF;
 }
 
 
 /* layout */
 
 .page{
-  display: flex;
-  height: 100vh;
+  padding: 20px 0;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+  justify-content: center;
+  
 }
-.page > aside{
-  width: 200px;
+.page-container{
+	display: flex;
+	height: 40rem;
+	width: 60rem;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 2px 1px rgba(0,0,0,0.3),0 3px 2px 1px rgba(0,0,0,0.1);
 }
-.page > main{
+
+.page > .page-container > aside{
+  width: 30%;
+  height: 100%;
+  background: #FFFCF9;
+}
+.page > .page-container > main{
   flex-grow: 1;
   padding-left: 20px;
+  width: 70%;
+  height: 100%;
+  background: #FFFFFF;
 }
 
 /* aside */
-.page > aside{
+.page > .page-container > aside{
   display: flex;
   flex-direction: column;
 }
@@ -36,7 +57,7 @@ body{
   padding: 10px;
 }
 .newSong.active{
-  background: #d4d4d4;
+  background: #EF1873;
 }
 #songList-container{
   flex-grow: 1;
@@ -50,14 +71,16 @@ body{
   padding: 10px; 
 }
 .songList > li.active{
-  background: #d4d4d4;
+  background: #EF1873;
 }
-.uploadArea{}
+#uploadContainer,
+#uploadButton{
+  width: 100%;
+}
 .draggable{
   text-align: center;
-  padding: 20px;
   border-radius: 4px;
-  border: 2px dashed #ddd;
+  border: 5px dashed #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,13 +89,11 @@ body{
 }
 .clickable{
   cursor: pointer;
+  padding: 20px;
 }
 
 /* main */
 
-.page > main{
-  background: #d4d4d4;
-}
 .form {
   font-size: 14px;
 }
@@ -99,17 +120,32 @@ body{
 .form input[type=button],
 .form input[type=submit],
 .form button{
-  height: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0.5rem 2rem;
   border-radius: 5px;
+  background: #EF1873;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
 }
-.page > main {
+.form button{
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  background: #EF1873;
+  outline: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.form button:hover{
+  transition: all 0.3s;
+  box-shadow: 0px 2px 2px 0 rgba(214,16,107,0.5),0px 5px 5px 0 rgba(214,16,107,0.3),0px 7px 7px 0 rgba(214,16,107,0.1);
+}
+.page > .page-container > main {
   padding-top: 20px;
 }
-.page > main > .form{
 
-}
 /* loading */
 
 @keyframes loading{
