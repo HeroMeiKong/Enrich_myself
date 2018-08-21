@@ -17,7 +17,6 @@
       this.active()
       window.eventHub.on('new', (data) => {
         this.active()
-        console.log('zheli')
       })
       window.eventHub.on('select', (data) => {
         this.deactive()
