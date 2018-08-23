@@ -1,5 +1,7 @@
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
+context.fillStyle = "white";
+context.fillRect(0, 0, yyy.width, yyy.height);
 
 autoSetCanvasSize(yyy)
 
@@ -11,6 +13,29 @@ changeLineWidth(nodes)
 
 let colors = document.querySelectorAll('#colors')
 changeColor(colors)
+
+clear.onclick = function () {
+  context.clearRect(0, 0, yyy.width, yyy.height)
+}
+download.onclick = function () {
+  fillCanvasBackgroundWithColor(yyy, 'white');
+  let url = yyy.toDataURL("image/png")
+  let a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = '我的作品'
+  a.target = '_blank'
+  a.click()
+}
+
+function fillCanvasBackgroundWithColor(canvas, color) {
+  const context = canvas.getContext('2d');
+  context.save();
+  context.globalCompositeOperation = 'destination-over';
+  context.fillStyle = color;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.restore();
+}
 
 function changeColor(aim) {
   length = aim[0].children
