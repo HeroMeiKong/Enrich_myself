@@ -5,20 +5,74 @@ autoSetCanvasSize(yyy)
 
 listenToMouse(yyy)
 
-
 var eraserEnabled = false
-eraser.onclick = function () {
-  eraserEnabled = true
-  actions.className = 'actions x'
+let nodes = document.querySelectorAll('#actions')
+changeLineWidth(nodes)
 
+let colors = document.querySelectorAll('#colors')
+changeColor(colors)
+
+function changeColor(aim) {
+  length = aim[0].children
+  let activeicn = null
+  for (i = 0; i < length.length; i++) {
+    length[i].onclick = function (x) {
+      activeicn = x.currentTarget
+      activeicn.classList.add('active')
+      context.strokeStyle = x.currentTarget.id
+      let siblings = allSiblings(activeicn)
+      for (j = 0; j < siblings.length; j++) {
+        siblings[j].classList.remove('active')
+      }
+    }
+  }
 }
-brush.onclick = function () {
-  eraserEnabled = false
-  actions.className = 'actions'
+
+function changeLineWidth(aim) {
+  length = aim[0].children
+  let activeicn = null
+  for (i = 0; i < length.length; i++) {
+    length[i].onclick = function (x) {
+      activeicn = x.currentTarget
+      activeicn.classList.add('active')
+      switch (x.currentTarget.id) {
+        case 'pensmall':
+          context.lineWidth = 1
+          eraserEnabled = false
+          break
+        case 'penmiddle':
+          context.lineWidth = 3
+          eraserEnabled = false
+          break
+        case 'penbig':
+          context.lineWidth = 5
+          eraserEnabled = false
+          break
+        case 'eraser':
+          context.lineWidth = 5
+          eraserEnabled = true
+        default:
+          break
+      }
+      let siblings = allSiblings(activeicn)
+      for (j = 0; j < siblings.length; j++) {
+        siblings[j].classList.remove('active')
+      }
+    }
+  }
 }
 
-
-/******/
+function allSiblings(context) {
+  var siblings = [];
+  var parent = context.parentNode;
+  var childs = parent.children;
+  for (var i = 0; i < childs.length; i++) {
+    if (childs[i] !== context) {
+      siblings.push(childs[i])
+    }
+  }
+  return siblings;
+}
 
 function autoSetCanvasSize(canvas) {
   setCanvasSize()
@@ -45,9 +99,7 @@ function drawCircle(x, y, radius) {
 
 function drawLine(x1, y1, x2, y2) {
   context.beginPath();
-  context.strokeStyle = 'black'
   context.moveTo(x1, y1) // 起点
-  context.lineWidth = 5
   context.lineTo(x2, y2) // 终点
   context.stroke()
   context.closePath()
