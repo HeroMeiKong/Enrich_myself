@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+header{
+  display: flex;
+  flex-direction: row;
+  height: 20vh;
+}
+.ico{
+  height: 100px;
+  width: 50%;
+  padding: 10px 0 0 50px; 
+}
+.search{
+  height: 100px;
+  width: 25%;
+  border: 1px solid black;
+}
+.github{
+  height: 100px;
+  width: 25%;
+  border: 1px solid black;
+}
+kbd {
+  width: 4em;
+  height: 4em;
+  display: inline-block;
+  text-transform: uppercase;
+  position: relative;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+kbd>button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+kbd:hover>button {
+  display: inline-block;
+}
+
+body {
+  background: url(./alum.png);
+}
+
+main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#main {
+  display: inline-block;
+  ;
+}
+
+#main>div:nth-child(2) {
+  margin-left: -22px;
+}
+
+#main>div:nth-child(3) {
+  margin-left: -80px;
+}
+
+
+.key {
+  width: 50px;
+  height: 40px;
+  background: #000000;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  font-size: 16px;
+  font-family: Helvetica;
+  border-radius: 8px;
+}
+.key.active{
+  top: 2px;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  margin: 20px;
+}
+
+.row .key {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 71px;
+  height: 69px;
+}
+
+.key span{
+  font-size: 26px;
+  padding: 7px 0 0 20px;
+}
+.key img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 4px;
+  bottom: 5px;
+}
+
+.key .text {
+  position: absolute;
+  left: 4px;
+  top: 2px;
+}
