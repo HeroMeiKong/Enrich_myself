@@ -10,8 +10,8 @@ addActive(keyboards)
 deleteActive(keyboards)
 let texts = document.querySelectorAll('#texts')
 search(texts)
-let tool = document.querySelectorAll('#search > .button')
-searchTool(texts[0].value, tool)
+let tool = document.querySelectorAll('#search > .searchcontext > .button')
+searchTool(texts, tool)
 
 function getFromLocalStorage(name) {
   return JSON.parse(localStorage.getItem(name) || 'null')
@@ -36,7 +36,7 @@ function createButton(id) {
     var button2 = aim['target']
     var img2 = button2.previousSibling
     var key = button2['id']
-    var x = prompt('给我一个网址')
+    var x = prompt('给我一个网址(不加协议)')
     hash[key] = x
     img2.src = 'http://' + x + '/favicon.ico'
     img2.onerror = function (aim) {
@@ -77,13 +77,13 @@ function init() {
     'u': 'www.uc.cn',
     'i': 'iqiyi.com',
     'o': 'opera.com',
-    'p': 'pro.25pp.com',
+    'p': 'www.pptv.com',
     'a': 'www.acfun.cn',
     's': 'www.sogou.com',
     'd': 'www.dilidili.wang',
     'f': 'www.facebook.com',
     'g': 'www.google.com',
-    'h': 'heromeikong.github.io',
+    'h': 'www.douyu.com',
     'j': 'www.jd.com',
     'k': 'www.kugou.com',
     'l': 'lol.qq.com',
@@ -162,21 +162,14 @@ function search(text) {
   }
 }
 
-function searchTool(text, tool) {
-  let texts = text 
+function searchTool(texts, tool) {
   for (let i = 0; i < tool.length; i++) {
     tool[i].onclick = function (aim) {
       if (i == 0) {
-        console.log(1)
-        window.open('http://www.baidu.com/s?wd=' + texts, '')
+        window.open('http://www.baidu.com/s?wd= ' + texts[0].value, '')
       } else {
-        console.log(2)
-        window.open('http://www.google.com/search?q=' + texts, '')
+        window.open('http://www.google.com/search?q=' + texts[0].value, '')
       }
-      /*         
-            } else {
-              
-            } */
     }
   }
 }
