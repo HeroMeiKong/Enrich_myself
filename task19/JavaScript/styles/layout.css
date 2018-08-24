@@ -4,7 +4,7 @@ body{
   overflow: hidden;
 }
 #xxx{
-  background: white;
+  background: #FFFFFF;
   display: block;
 }
 #draw{
@@ -13,7 +13,7 @@ body{
   left: 0;
   width: 52px;
   height: 100vh;
-  background: #d0d0d0;
+  background: #FFCEAD;
 }
 .actions{
   position: fixed;
@@ -30,7 +30,7 @@ body{
 .icon {
   width: 3rem; height: 3rem;
   vertical-align: -0.15em;
-  fill: yellow;
+  fill: #2F464A;
   overflow: hidden;
   padding: 10px;
   cursor: pointer;
@@ -40,7 +40,7 @@ body{
 }
 
 .icon.active{
-  fill:blue;
+  fill:#FDFFA1;
   transform: scale(1.5);
 }
 

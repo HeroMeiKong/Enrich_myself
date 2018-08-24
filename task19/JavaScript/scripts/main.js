@@ -1,12 +1,14 @@
 var yyy = document.getElementById('xxx');
 var context = yyy.getContext('2d');
 
+
 autoSetCanvasSize(yyy)
 
 listenToMouse(yyy)
 
 var eraserEnabled = false
 var circleShape = true
+var defaultColor = 'black'
 let nodes = document.querySelectorAll('#actions')
 changeLineWidth(nodes)
 
@@ -41,13 +43,18 @@ function changeColor(aim) {
   let activeicn = null
   for (i = 0; i < length.length; i++) {
     length[i].onclick = function (x) {
-      activeicn = x.currentTarget
-      activeicn.classList.add('active')
-      context.strokeStyle = x.currentTarget.id
-      console.log(context.strokeStyle)
-      let siblings = allSiblings(activeicn)
-      for (j = 0; j < siblings.length; j++) {
-        siblings[j].classList.remove('active')
+      if (eraserEnabled) {
+        alert('您正在使用橡皮擦，不能更换颜色！')
+      } else {
+        activeicn = x.currentTarget
+        activeicn.classList.add('active')
+        defaultColor = x.currentTarget.id
+        context.strokeStyle = defaultColor
+        console.log(defaultColor)
+        let siblings = allSiblings(activeicn)
+        for (j = 0; j < siblings.length; j++) {
+          siblings[j].classList.remove('active')
+        }
       }
     }
   }
@@ -64,24 +71,31 @@ function changeLineWidth(aim) {
         case 'pensmall':
           context.lineWidth = 1
           eraserEnabled = false
+          context.strokeStyle = defaultColor
           break
         case 'penmiddle':
           context.lineWidth = 3
           eraserEnabled = false
+          context.strokeStyle = defaultColor
           break
         case 'penbig':
           context.lineWidth = 5
           eraserEnabled = false
+          context.strokeStyle = defaultColor
+          console.log(defaultColor)
+          console.log(context.strokeStyle)
           break
         case 'eraser-circle':
           context.lineWidth = 5
           eraserEnabled = true
           circleShape = true
+          context.strokeStyle = 'white'
           break
         case 'eraser-rect':
           context.lineWidth = 5
           eraserEnabled = true
           circleShape = false
+          context.strokeStyle = 'white'
           break
         default:
           break
@@ -132,11 +146,8 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 function drawClear(x1, y1, x2, y2) {
+  context.lineWidth = 6
   context.beginPath();
-  context.arc(x1, y1, 1, 0, Math.PI * 2);
-  context.fillStyle = '#FFFFFF'
-  context.strokeStyle = '#FFFFFF'
-  context.fill();
   context.moveTo(x1, y1) // 起点
   context.lineTo(x2, y2) // 终点
   context.stroke()
@@ -210,13 +221,15 @@ function listenToMouse(canvas) {
       var x = aaa.clientX
       var y = aaa.clientY
       using = true
+      context.fillStyle = '#FFFFFF'
       if (eraserEnabled) {
         if (circleShape) {
           context.beginPath();
-          context.arc(x, y, 5, 0, Math.PI * 2);
+          context.arc(x, y, 3, 0, Math.PI * 2);
           context.fill();
+          context.closePath()
         } else {
-          context.clearRect(x - 5, y - 5, 10, 10)
+          context.clearRect(x - 3, y - 3, 6, 6)
         }
         eraserPoint = {
           "x": x,
@@ -236,15 +249,8 @@ function listenToMouse(canvas) {
         return
       }
       if (eraserEnabled) {
-        if (circleShape) {
-          context.fillStyle = "#FFFFFF";
-          context.beginPath();
-          context.arc(x, y, 5, 0, Math.PI * 2);
-          context.fill();
-          context.closePath()
-        } else {
-          context.clearRect(x - 5, y - 5, 10, 10)
-        }
+        context.strokeStyle = 'white'
+        context.clearRect(x - 3, y - 3, 6, 6)
         let newPoint = {
           "x": x,
           "y": y
