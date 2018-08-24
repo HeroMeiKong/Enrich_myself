@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./styles/layout.css">
 </head>
 <body>
-  <canvas id="xxx" width=300 height=300></canvas>
+  <canvas id="xxx"></canvas>
   <div id="draw">
     <div id=actions class="actions">
       <svg id="pensmall" class="icon active">
@@ -20,7 +20,10 @@
       <svg id="penbig" class="icon">
         <use xlink:href="#icon-pen2"></use>
       </svg>
-      <svg id="eraser" class="icon">
+      <svg id="eraser-circle" class="icon">
+        <use xlink:href="#icon-circle"></use>
+      </svg>
+      <svg id="eraser-rect" class="icon">
         <use xlink:href="#icon-eraser"></use>
       </svg>
     </div>
@@ -40,8 +43,7 @@
       <li class="black active" id="black"></li>
     </ol>
   </div>
-
+  <script src="https://at.alicdn.com/t/font_806140_c15vsjmatuk.js"></script>
+  <script src="./scripts/main.js"></script>
 </body>
-<script src="https://at.alicdn.com/t/font_806140_xwfgqkpw8u.js"></script>
-<script src="./scripts/main.js"></script>
 </html>

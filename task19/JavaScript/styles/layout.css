@@ -23,14 +23,14 @@ body{
 }
 .tools{
   position: fixed;
-  top: 205px;
+  top: 250px;
   left: 0;
   width: 52px;
 }
 .icon {
   width: 3rem; height: 3rem;
   vertical-align: -0.15em;
-  fill: currentColor;
+  fill: yellow;
   overflow: hidden;
   padding: 10px;
   cursor: pointer;
@@ -40,7 +40,7 @@ body{
 }
 
 .icon.active{
-  fill:red;
+  fill:blue;
   transform: scale(1.5);
 }
 
